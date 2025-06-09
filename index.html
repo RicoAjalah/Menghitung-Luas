@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Luas Berbagai Bangun Datar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            flex-direction: column;
+            color: #333; /* Warna teks default */
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 380px; /* Lebar container lebih besar untuk menampung tombol */
+            margin-bottom: 20px;
+        }
+
+        h1, h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Gaya untuk tombol navigasi */
+        .nav-button {
+            display: block; /* Membuat tombol menempati baris penuh */
+            width: calc(100% - 40px); /* Lebar tombol menyesuaikan container, kurangi padding */
+            padding: 15px;
+            margin: 10px auto; /* Jarak antar tombol dan rata tengah */
+            background-color: #007bff;
+            color: white;
+            text-decoration: none; /* Hapus garis bawah pada link */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box; /* Agar padding tidak menambah lebar */
+        }
+
+        .nav-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Gaya untuk form jika kamu tetap ingin menggunakannya */
+        form {
+            margin: 10px 0; /* Jarak atas dan bawah form */
+        }
+        form input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #28a745; /* Warna hijau untuk submit */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        form input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <img src="SMK2-Logo.png" alt="Logo SMK2">
+
+    <div class="container">
+        <h1>Menghitung Luas Bangun Datar</h1>
+        <h3>Pilih salah satu untuk menghitung luas tersebut:</h3>
+
+        <a href="luas_segitiga.html" class="nav-button">Luas Segitiga</a>
+        <a href="luas_persegi.html" class="nav-button">Luas Persegi</a>
+        <a href="luas_persegi_panjang.html" class="nav-button">Luas Persegi Panjang</a>
+        <a href="luas_lingkaran.html" class="nav-button">Luas Lingkaran</a>
+
+        </div>
+</body>
+</html>

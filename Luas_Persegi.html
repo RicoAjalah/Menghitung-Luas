@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Luas Persegi</title>
+    <style>
+        /* Gaya umum untuk body */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            flex-direction: column; /* Untuk menata elemen secara vertikal */
+        }
+
+        /* Gaya untuk wadah utama kalkulator */
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya untuk judul */
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Gaya untuk label input */
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Gaya untuk input angka */
+        input[type="number"] {
+            width: calc(100% - 22px); /* Kurangi padding dan border */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; /* Agar padding tidak menambah lebar */
+        }
+
+        /* Gaya untuk tombol */
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Gaya untuk area hasil */
+        .result {
+            margin-top: 25px;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+            word-wrap: break-word; /* Memastikan teks panjang tidak keluar wadah */
+        }
+
+        /* Gaya untuk pesan error */
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Gaya untuk gambar logo */
+        img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="SMK2-Logo.png" alt="Logo SMK2">
+
+    <div class="container">
+        <h2>Menghitung Luas Persegi</h2>
+
+        <div>
+            <label for="sisi_persegi">Masukkan Panjang Sisi Persegi (cm):</label>
+            <input type="number" id="sisi_persegi" required placeholder="Contoh: 10" step="any">
+        </div>
+
+        <button onclick="hitungLuasPersegi()">Hitung Luas</button>
+        <button onclick="clearForm()">Clear</button>
+
+        <div class="result" id="hasil_luas">
+            Luas: -
+        </div>
+        <div class="error" id="error_message"></div>
+    </div>
+
+    <form action="index.html" method="get">
+        <button type="submit">Kembali</button>
+    </form>
+
+    <script>
+        function hitungLuasPersegi() {
+            const sisiInput = document.getElementById('sisi_persegi');
+            const hasilLuasDiv = document.getElementById('hasil_luas');
+            const errorMessageDiv = document.getElementById('error_message');
+
+            // Mengosongkan pesan error sebelumnya
+            errorMessageDiv.textContent = '';
+
+            const sisi = parseFloat(sisiInput.value);
+
+            // Validasi input
+            if (isNaN(sisi) || sisi <= 0) {
+                errorMessageDiv.textContent = 'Mohon masukkan nilai sisi yang valid (angka positif).';
+                hasilLuasDiv.textContent = 'Luas: -'; // Reset hasil
+                return; // Berhenti jika input tidak valid
+            }
+
+            // Menghitung luas persegi
+            const luas = sisi * sisi;
+
+            // Menampilkan hasil
+            hasilLuasDiv.textContent = 'Panjang Sisi: ' + sisi + ' cm\n' +
+                                      'Rumus: sisi × sisi\n' +
+                                      'Luas: ' + luas.toFixed(2) + ' cm²';
+            // Menambahkan newline dengan '\n' dan mengatur white-space
+            hasilLuasDiv.style.whiteSpace = 'pre-wrap';
+        }
+
+        function clearForm() {
+            document.getElementById('sisi_persegi').value = ''; // Mengosongkan input
+            document.getElementById('hasil_luas').textContent = 'Luas: -'; // Mengosongkan hasil
+            document.getElementById('error_message').textContent = ''; // Mengosongkan pesan error
+        }
+    </script>
+</body>
+</html>
